@@ -4,7 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nesco/constant.dart';
 import 'package:nesco/provider/vin_provider.dart';
+import 'package:nesco/screens/diagnostics_service.dart';
+import 'package:nesco/screens/oil_change.dart';
 import 'package:nesco/screens/service_details.dart';
+import 'package:nesco/screens/washing_service.dart';
 
 import 'package:nesco/screens/widgets/home_card.dart';
 import 'package:provider/provider.dart';
@@ -230,10 +233,20 @@ class _HomeScreenState extends State<HomeScreen> {
                         icon: CupertinoIcons.text_badge_checkmark,
                       ),
                     ),
-                    HomeCard(
-                      inspectionText: "Oil Change",
-                      amount: "12,000XAF",
-                      icon: CupertinoIcons.drop,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => OilChange(),
+                          ),
+                        );
+                      },
+                      child: HomeCard(
+                        inspectionText: "Oil Change",
+                        amount: "12,000XAF",
+                        icon: CupertinoIcons.drop,
+                      ),
                     ),
                   ],
                 ),
@@ -248,14 +261,34 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    HomeCard(
-                        inspectionText: "Diagnostics",
-                        amount: "25,000XAF",
-                        icon: CupertinoIcons.graph_circle),
-                    HomeCard(
-                      inspectionText: "Washing",
-                      amount: "5,000XAF",
-                      icon: CupertinoIcons.sparkles,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DiagnosticsService(),
+                          ),
+                        );
+                      },
+                      child: HomeCard(
+                          inspectionText: "Diagnostics",
+                          amount: "25,000XAF",
+                          icon: CupertinoIcons.graph_circle),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => WashingService(),
+                          ),
+                        );
+                      },
+                      child: HomeCard(
+                        inspectionText: "Washing",
+                        amount: "5,000XAF",
+                        icon: CupertinoIcons.sparkles,
+                      ),
                     ),
                   ],
                 ),

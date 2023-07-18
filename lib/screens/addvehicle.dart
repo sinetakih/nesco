@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nesco/constant.dart';
 import 'package:nesco/model/api/vin.model.dart';
 import 'package:nesco/provider/vin_provider.dart';
+import 'package:nesco/screens/HomeNavigation.dart';
 import 'package:nesco/screens/homescreen.dart';
 import 'package:provider/provider.dart';
 
@@ -119,7 +120,7 @@ class _AddVehicleState extends State<AddVehicle> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const HomeScreen()));
+                                builder: (context) => const HomeNavigation()));
                       });
                     },
                     style: ElevatedButton.styleFrom(
